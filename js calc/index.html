@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        table{
+            border: 1px solid rgba(0, 0, 0, 0.712);
+            padding: 10px;
+        }
+        #textval{
+            padding: 12px;
+            outline: none;
+            margin-bottom: 10px;
+        }
+        input{
+            cursor: pointer;
+        }
+        input[type="button"]{
+            font-size: 18px;
+            background: #ecbc84de;
+            color: #fff;
+            width:100%;
+            padding: 10px;
+            border: 2px solid #ecbc84de;
+            transition: .4s all ease;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.11);
+        }
+        input[type="button"]:hover{
+            background: #eb9b40de;
+            border: 2px solid #eb9b40de;
+            transform: translate(-2px, -5px) rotate(3deg);
+        }
+        input[type="button"]:focus{
+            background: #eb9b40de;
+            border: 2px solid #eb9b40de;
+            transform: translate(-2px, -5px) rotate(3deg);
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="4">
+                <input type="text" value="" id="textval">
+            </td> 
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="c" onclick="clr()">
+            </td>
+            <td colspan="3">
+                <input type="button" value="Backspace" onclick="backspace()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="+" onclick="display('+')">
+            </td>
+            <td>
+                <input type="button" value="1" onclick="display('1')">
+            </td>
+            <td>
+                <input type="button" value="2" onclick="display('2')">
+            </td>
+            <td>
+                <input type="button" value="3" onclick="display('3')">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="-" onclick="display('-')">
+            </td>
+            <td>
+                <input type="button" value="4" onclick="display('4')">
+            </td>
+            <td>
+                <input type="button" value="5" onclick="display('5')">
+            </td>
+            <td>
+                <input type="button" value="6" onclick="display('6')">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="*" onclick="display('*')">
+            </td>
+            <td>
+                <input type="button" value="7" onclick="display('7')">
+            </td>
+            <td>
+                <input type="button" value="8" onclick="display('8')">
+            </td>
+            <td>
+                <input type="button" value="9" onclick="display('9')">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="/" onclick="display('/')">
+            </td>
+            <td>
+                <input type="button" value="." onclick="display('.')">
+            </td>
+            <td>
+                <input type="button" value="0" onclick="display('0')">
+            </td>
+            <td>
+                <input type="button" value="=" onclick="result()">
+            </td>
+        </tr>
+    </table>
+
+    <script> 
+        document.getElementById('textval').select();
+
+        function display(val) {
+            document.getElementById("textval").value += val;
+        }
+        function clr(){
+            document.getElementById("textval").value = "";
+        }
+        function result()
+        {
+            let x = document.getElementById("textval").value;
+            let y = eval(x);
+            document.getElementById("textval").value = y;
+        }
+        function backspace(){
+            let z = document.getElementById("textval").value;
+            document.getElementById("textval").value = z.substring(0, z.length - 1); 
+        }
+
+
+    </script>
+</body>
+</html>
